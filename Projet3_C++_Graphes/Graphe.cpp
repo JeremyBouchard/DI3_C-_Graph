@@ -47,7 +47,7 @@ void CGraphe::GRAModifierTabSommet(CSommet ** ppSOMParam, unsigned int uiNbSomme
 	ppSOMGRASommet=ppSOMParam;
 }
 
-void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination)
+void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, int iPoids)
 {
 	CSommet * ppSommet1, * ppSommet2;
 	unsigned int uiBoucle=0;
@@ -58,8 +58,8 @@ void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination)
 	if(ppSommet1==NULL || ppSommet2==NULL) throw CException(SOMMET_INEXISTANT);
 
 	try{
-		ppSommet1->SOMAjouterArcSortant(uiDestination);//uidestination=ppSommet2->LireNumero()
-		ppSommet2->SOMAjouterArcEntrant(uiOrigine);//uiOrigine=ppSommet1->LireNumero()
+		ppSommet1->SOMAjouterArcSortant(uiDestination,iPoids);//uidestination=ppSommet2->LireNumero()
+		ppSommet2->SOMAjouterArcEntrant(uiOrigine,iPoids);//uiOrigine=ppSommet1->LireNumero()
 	}catch(CException e){
 		throw e;
 	}
@@ -192,8 +192,8 @@ void CGraphe::GRAAfficher(){
 						std::cout<<ppSOMGRASommet[uiBoucleLigne]->SOMLireNumero()<<"||";
 					}
 					if(ppSOMGRASommet[uiBoucleLigne]->SOMTrouverArcSortant(ppSOMGRASommet[uiBoucleColonne]->SOMLireNumero()) != NULL){
-						std::cout<< std::setw(12);
-						std::cout<<"OK|";
+						std::cout<< std::setw(11);
+						std::cout<<ppSOMGRASommet[uiBoucleLigne]->SOMTrouverArcSortant(ppSOMGRASommet[uiBoucleColonne]->SOMLireNumero())->ARCLirePoids()<<"|";
 					}else{
 						std::cout<< std::setw(12);
 						std::cout<<"|";

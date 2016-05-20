@@ -1,1 +1,13 @@
+ufhiuhrei=3
+fzefzef=3
+efzefze=[
+zefzef=1
+zefzef=2
+zefz=3
+]
+Arcs=[
+Debut=1,Fin=2, poids=2
+Debut=2,Fin=3, poids=5
+Debut=3,Fin=1, poids=-80
+]
 
