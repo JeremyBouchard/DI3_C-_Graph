@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Projet3_C++_Graphes", "Projet3_C++_Graphes\Projet3_C++_Graphes.vcxproj", "{C0F6C1F7-CC86-4EFD-A905-CD69C82B9EDC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Projet3_C++_Matrices", "..\..\DI3_Projet3_Matrices_Bouchard_Lallement\DI3_Projet3_Matrices_Bouchard_Lallement\DI3_Projet3_Matrices_Bouchard_Lallement\Projet3_C++_Matrices\Projet3_C++_Matrices.vcxproj", "{2BC22573-7CD8-4C50-91A7-9E0EC6364285}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0F6C1F7-CC86-4EFD-A905-CD69C82B9EDC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C0F6C1F7-CC86-4EFD-A905-CD69C82B9EDC}.Debug|Win32.Build.0 = Debug|Win32
+		{C0F6C1F7-CC86-4EFD-A905-CD69C82B9EDC}.Release|Win32.ActiveCfg = Release|Win32
+		{C0F6C1F7-CC86-4EFD-A905-CD69C82B9EDC}.Release|Win32.Build.0 = Release|Win32
+		{2BC22573-7CD8-4C50-91A7-9E0EC6364285}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2BC22573-7CD8-4C50-91A7-9E0EC6364285}.Debug|Win32.Build.0 = Debug|Win32
+		{2BC22573-7CD8-4C50-91A7-9E0EC6364285}.Release|Win32.ActiveCfg = Release|Win32
+		{2BC22573-7CD8-4C50-91A7-9E0EC6364285}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
