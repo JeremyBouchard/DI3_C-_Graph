@@ -41,6 +41,7 @@ public:
 	void GRASupprimerSommet(CSommet & SOMParam);
 
 	CSommet* GRATrouverSommet(int uiNumero);
+	int GRATrouverIndiceSommet(int uiNumero);
 	unsigned int GRANombreARC();
 
 	void GRAAfficher();

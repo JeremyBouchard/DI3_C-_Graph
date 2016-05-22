@@ -6,10 +6,12 @@
 #include "Arc.h"
 #include "Exception.h"
 
+
 class CTraitementGraphe
 {
 public:
 	CGraphe & TGRInversionGraphe(CGraphe & GRAParam);
+	int* TGRBellmanFord (CGraphe & GRAParam, int SOMSource, int* iDistance);
 };
 
 #endif

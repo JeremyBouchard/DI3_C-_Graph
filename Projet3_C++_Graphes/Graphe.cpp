@@ -162,6 +162,18 @@ CSommet * CGraphe::GRATrouverSommet( int uiNumero){
 	return NULL;
 }
 
+int CGraphe::GRATrouverIndiceSommet(int uiNumero){
+	unsigned int uiBoucle;
+
+	for (uiBoucle=0;uiBoucle<uiGRANbSommet;uiBoucle++){ 
+		
+		if (ppSOMGRASommet[uiBoucle]->SOMLireNumero()==uiNumero){
+			return uiBoucle;
+		}
+	}
+	return -1;
+}
+
 void CGraphe::GRAAfficher(){
 
 	unsigned int uiBoucleLigne, uiBoucleColonne;
