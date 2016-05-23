@@ -50,9 +50,11 @@ public:
 	void SOMSupprimerArcSortant(CArc & ARCParam);
 	void SOMSupprimerArcSortant(int uiDestination);
 	
-	CArc * SOMTrouverArcSortant(int uiDestiation);
+	CArc * SOMTrouverArcSortant(int uiDestination);
+	int SOMTrouverIndiceArcSortant(int uiDestination);
 	//int SOMTrouver
 	CArc * SOMTrouverArcEntrant(int uiDestination);
+	int SOMTrouverIndiceArcEntrant(int uiDestination);
 
 	CSommet & operator= (CSommet& SOMParam);
 };

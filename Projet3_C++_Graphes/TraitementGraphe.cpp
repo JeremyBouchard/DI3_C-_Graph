@@ -28,54 +28,65 @@ CGraphe & CTraitementGraphe::TGRInversionGraphe(CGraphe & GRAParam){
 
 	return *GRAInverse;
 }
-/*
-int* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource, int* piDistance){
+
+float* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource){
 		
 	//CSommet* SOMSource = GRAParam.GRATrouverSommet(iSource);
 	
 	unsigned int uiNbSommet=GRAParam.GRALireNbSommet();
-	//unsigned int uiNbArc=GRAParam.GRANombreARC();
+	unsigned int uiIndiceSommet = GRAParam.GRATrouverIndiceSommet(iSource);
 	CSommet** TabSommet = GRAParam.GRALireTabSommet();
 
-	unsigned int uiBoucleSuiteSommet, uiBoucleSommet, uiBoucleArc; //TODO :enlever le =0
-	int * P = new int[uiNbSommet];
-	bool bPoidsInchange;
-	int longueur;
+	unsigned int uiBoucleSuiteSommet, uiBoucleSommet, uiBoucleArc; 
 
-	unsigned int uiIndiceSommet = GRAParam.GRATrouverIndiceSommet(iSource);
-	
+	int * P = new int[uiNbSommet];
+	float * piDistance = new float[uiNbSommet];
+
+	bool bPoidsInchange;
+	float longueur;
+	int iDestination;
+	unsigned iIndiceDestination;
 	
 	for (uiBoucleSommet=0 ; uiBoucleSommet < uiNbSommet; uiBoucleSommet++){
-		piDistance[uiBoucleSommet]=INT_MAX;
-		P[uiBoucleSommet]=0;
+		piDistance[uiBoucleSommet]=FLT_MAX;
+		P[uiBoucleSommet]=-1;
 	}
-	
 	piDistance[uiIndiceSommet]=0;
 	P[uiIndiceSommet]=0;
 
-	for(uiBoucleSuiteSommet=1 ; uiBoucleSuiteSommet< uiNbSommet-1; uiBoucleSuiteSommet++){
+
+	for(uiBoucleSuiteSommet=1 ; uiBoucleSuiteSommet < uiNbSommet; uiBoucleSuiteSommet++){
 		bPoidsInchange=true;
 
-		for (uiBoucleSommet=0 ; uiBoucleSommet< uiNbSommet; uiBoucleSommet++){
+		for (uiBoucleSommet=0 ; uiBoucleSommet < uiNbSommet; uiBoucleSommet++){
 
-			if (P[uiBoucleSommet]=uiBoucleSuiteSommet-1){ //Si utilisé au tour precedent
+			if (P[uiBoucleSommet] == uiBoucleSuiteSommet-1){ 
 
-				for (uiBoucleArc; uiBoucleArc<TabSommet[uiBoucleSommet]->SOMLireNbArcSortant() ; uiBoucleArc++){
+				for (uiBoucleArc=0; uiBoucleArc < TabSommet[uiBoucleSommet]->SOMLireNbArcSortant() ; uiBoucleArc++){
+					
 					longueur = piDistance[uiBoucleSommet] + TabSommet[uiBoucleSommet]->SOMLireArcSortant()[uiBoucleArc]->ARCLirePoids();
+					iDestination = TabSommet[uiBoucleSommet]->SOMLireArcSortant()[uiBoucleArc]->ARCLireDestination();
+					iIndiceDestination = GRAParam.GRATrouverIndiceSommet(iDestination);
 
-					if (longueur < piDistance[
+					if (longueur < piDistance[iIndiceDestination] ){
+						piDistance[iIndiceDestination]=longueur;
+						bPoidsInchange=false;
+						P[iIndiceDestination]=uiBoucleSuiteSommet;
+					}
+					
 				}
 
 			}
 
 		}
-
-
-
-
+		if(bPoidsInchange){
+			break;
+		}
 	}
 
+	/*for (uiBoucleArc=0 ; uiBoucleArc<uiNbSommet;uiBoucleArc++)
+	std::cout<<"Valeur P ["<<uiBoucleArc<<"] "<< P[uiBoucleArc]<<std::endl;*/
 
-	
+
+	return piDistance;
 }
-*/

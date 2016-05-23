@@ -18,9 +18,16 @@ int main(int argc, char * argv[])
 			GRASaisie->GRAAfficher();
 
 			CTraitementGraphe TGRTraitement;
-			CGraphe pGRAGrapheInv(TGRTraitement.TGRInversionGraphe(*GRASaisie));
+			/*CGraphe pGRAGrapheInv(TGRTraitement.TGRInversionGraphe(*GRASaisie));
 			std::cout << "Graphe 1 inverse: \n" << std::endl;
-			pGRAGrapheInv.GRAAfficher();
+			pGRAGrapheInv.GRAAfficher();*/
+
+			unsigned int uiBoucle;
+			std::cout<<"Tableau de distance : "<<*TGRTraitement.TGRBellmanFord(*GRASaisie, 1)<<std::endl;
+			for (uiBoucle=0 ; uiBoucle < GRASaisie->GRALireNbSommet() ; uiBoucle++){
+				std::cout<<"Distance sommet "<<GRASaisie->GRALireTabSommet()[uiBoucle]->SOMLireNumero() << " -> " <<TGRTraitement.TGRBellmanFord(*GRASaisie, 1)[uiBoucle]<<std::endl;
+
+			}
 
 		}catch(CException e){
 			switch(e.EXClire_valeur())

@@ -219,6 +219,19 @@ CArc * CSommet::SOMTrouverArcEntrant(int uiDestination){
 	return NULL;
 }
 
+int CSommet::SOMTrouverIndiceArcEntrant(int uiDestination){
+	int uiBoucle;
+
+	for (uiBoucle=0;uiBoucle<uiSOMNbArcEntrant;uiBoucle++){ 
+		
+		if (ppARCSOMEntrant[uiBoucle]->ARCLireDestination()== uiDestination){
+			return uiBoucle;
+		}
+	}
+	return -1;
+
+}
+
 CArc * CSommet::SOMTrouverArcSortant(int uiDestination){
 	CArc * pArc1;
 	unsigned int uiBoucle;
@@ -230,6 +243,19 @@ CArc * CSommet::SOMTrouverArcSortant(int uiDestination){
 		}
 	}
 	return NULL;
+}
+
+int CSommet::SOMTrouverIndiceArcSortant(int uiDestination){
+	int uiBoucle;
+
+	for (uiBoucle=0;uiBoucle<uiSOMNbArcEntrant;uiBoucle++){ 
+		
+		if (ppARCSOMSortant[uiBoucle]->ARCLireDestination()== uiDestination){
+			return uiBoucle;
+		}
+	}
+	return -1;
+
 }
 
 CSommet & CSommet::operator= (CSommet& SOMParam){

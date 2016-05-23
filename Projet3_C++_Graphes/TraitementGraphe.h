@@ -11,7 +11,7 @@ class CTraitementGraphe
 {
 public:
 	CGraphe & TGRInversionGraphe(CGraphe & GRAParam);
-	int* TGRBellmanFord (CGraphe & GRAParam, int SOMSource, int* iDistance);
+	float* TGRBellmanFord (CGraphe & GRAParam, int SOMSource);
 };
 
 #endif
