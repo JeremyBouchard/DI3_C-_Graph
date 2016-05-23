@@ -4,15 +4,15 @@ class CArc
 {
 private :
 	int uiARCDestination;
-	int iARCPoids;
+	float fARCPoids;
 
 public:
-	CArc(int uiDestination, int iPoids);
+	CArc(int uiDestination, float fPoids);
 	CArc(CArc & ARCParam);
 	~CArc(void);
 
 	int ARCLireDestination(){return uiARCDestination;}
-	int ARCLirePoids(){return iARCPoids;}
+	float ARCLirePoids(){return fARCPoids;}
 };
 
 #endif

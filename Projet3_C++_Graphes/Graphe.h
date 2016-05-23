@@ -32,7 +32,7 @@ public:
     unsigned int GRALireNbSommet(){return uiGRANbSommet;}
 	CSommet ** GRALireTabSommet(){return ppSOMGRASommet;}
 
-	void GRAAjouterArc(int uiOrigine, int uiDestination, int iPoids);
+	void GRAAjouterArc(int uiOrigine, int uiDestination, float fPoids);
 	void GRAAjouterArc(CArc & ARCParam);
 	void GRAASupprimerArc(int uiOrigine, int uiDestination);
 	void GRAAjouterSommet(int uiNumero);

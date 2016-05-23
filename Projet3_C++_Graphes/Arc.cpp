@@ -2,14 +2,14 @@
 #include "Arc.h"
 
 
-CArc::CArc(int uiDestination, int iPoids){
+CArc::CArc(int uiDestination, float fPoids){
 	uiARCDestination=uiDestination;
-	iARCPoids=iPoids;
+	fARCPoids=fPoids;
 }
 
 CArc::CArc(CArc & ARCParam){
 	uiARCDestination=ARCParam.uiARCDestination;
-	iARCPoids=ARCParam.iARCPoids;
+	fARCPoids=ARCParam.fARCPoids;
 }
 CArc::~CArc(void)
 {

@@ -28,7 +28,7 @@ CGraphe & CTraitementGraphe::TGRInversionGraphe(CGraphe & GRAParam){
 
 	return *GRAInverse;
 }
-
+/*
 int* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource, int* piDistance){
 		
 	//CSommet* SOMSource = GRAParam.GRATrouverSommet(iSource);
@@ -76,5 +76,6 @@ int* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource, int* pi
 	}
 
 
-
+	
 }
+*/

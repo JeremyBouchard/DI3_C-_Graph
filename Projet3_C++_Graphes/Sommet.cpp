@@ -78,11 +78,11 @@ void CSommet::SOMModifierArcSortant(CArc** ppARCParam, unsigned int uiNbArc){
 	uiSOMNbArcSortant=uiNbArc;
 }
 
-void CSommet::SOMAjouterArcEntrant(int uiDestination, int iPoids){
+void CSommet::SOMAjouterArcEntrant(int uiDestination, float fPoids){
 	CArc* ARCNouvelArc ;
 
 	try{
-		ARCNouvelArc = new CArc(uiDestination, iPoids);
+		ARCNouvelArc = new CArc(uiDestination, fPoids);
 	}catch(std::bad_alloc){
 		throw CException(ERREUR_ALLOCATION_MEMOIRE_OBJET);
 	}
@@ -106,11 +106,11 @@ void CSommet::SOMAjouterArcEntrant(CArc & ARCParam){
 
 }
 
-void CSommet::SOMAjouterArcSortant(int uiDestination, int iPoids){
+void CSommet::SOMAjouterArcSortant(int uiDestination, float fPoids){
 	CArc* pARCNouvelArc;
 
 	try{
-		pARCNouvelArc = new CArc(uiDestination,iPoids);
+		pARCNouvelArc = new CArc(uiDestination,fPoids);
 	}catch(std::bad_alloc){
 		throw CException(ERREUR_ALLOCATION_MEMOIRE_OBJET);
 	}

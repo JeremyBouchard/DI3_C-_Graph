@@ -41,9 +41,9 @@ public:
 	void SOMModifierArcSortant(CArc** ppARCParam, unsigned int uiNbArc);
 
 	void SOMModifierNumero(int uiNumero){uiSOMNumero=uiNumero;}
-	void SOMAjouterArcSortant(int uiDestination, int iPoids);
+	void SOMAjouterArcSortant(int uiDestination, float fPoids);
 	void SOMAjouterArcSortant(CArc & ARCParam);
-	void SOMAjouterArcEntrant(int uiDestination, int iPoids);
+	void SOMAjouterArcEntrant(int uiDestination, float fPoids);
 	void SOMAjouterArcEntrant(CArc & ARCParam);
 	void SOMSupprimerArcEntrant(int uiDestination);
 	void SOMSupprimerArcEntrant(CArc & ARCParam);

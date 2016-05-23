@@ -47,7 +47,7 @@ void CGraphe::GRAModifierTabSommet(CSommet ** ppSOMParam, unsigned int uiNbSomme
 	ppSOMGRASommet=ppSOMParam;
 }
 
-void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, int iPoids)
+void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, float fPoids)
 {
 	CSommet * ppSommet1, * ppSommet2;
 	unsigned int uiBoucle=0;
@@ -58,8 +58,8 @@ void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, int iPoids)
 	if(ppSommet1==NULL || ppSommet2==NULL) throw CException(SOMMET_INEXISTANT);
 
 	try{
-		ppSommet1->SOMAjouterArcSortant(uiDestination,iPoids);//uidestination=ppSommet2->LireNumero()
-		ppSommet2->SOMAjouterArcEntrant(uiOrigine,iPoids);//uiOrigine=ppSommet1->LireNumero()
+		ppSommet1->SOMAjouterArcSortant(uiDestination,fPoids);//uidestination=ppSommet2->LireNumero()
+		ppSommet2->SOMAjouterArcEntrant(uiOrigine,fPoids);//uiOrigine=ppSommet1->LireNumero()
 	}catch(CException e){
 		throw e;
 	}
