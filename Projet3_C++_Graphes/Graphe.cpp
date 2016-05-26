@@ -181,7 +181,7 @@ void CGraphe::GRAAfficher(){
 
 	if(uiGRANbSommet!=0){
 
-		std::cout << "Matrice des arcs (source en ligne et destination en colonne) : \n";
+		std::cout << "Matrice des arcs (source en ligne, destination en colonne, poid au croisement) : \n";
 		std::cout<< std::setw(13);
 		std::cout<<"SRC -> DEST||";
 		for(uiBoucleColonne=0; uiBoucleColonne<uiGRANbSommet; uiBoucleColonne++){

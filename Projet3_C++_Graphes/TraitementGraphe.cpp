@@ -30,8 +30,6 @@ CGraphe & CTraitementGraphe::TGRInversionGraphe(CGraphe & GRAParam){
 }
 
 float* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource){
-		
-	//CSommet* SOMSource = GRAParam.GRATrouverSommet(iSource);
 	
 	unsigned int uiNbSommet=GRAParam.GRALireNbSommet();
 	unsigned int uiIndiceSommet = GRAParam.GRATrouverIndiceSommet(iSource);
@@ -72,21 +70,27 @@ float* CTraitementGraphe::TGRBellmanFord (CGraphe & GRAParam, int iSource){
 						piDistance[iIndiceDestination]=longueur;
 						bPoidsInchange=false;
 						P[iIndiceDestination]=uiBoucleSuiteSommet;
-					}
-					
+					}		
 				}
-
 			}
-
 		}
 		if(bPoidsInchange){
 			break;
 		}
 	}
 
-	/*for (uiBoucleArc=0 ; uiBoucleArc<uiNbSommet;uiBoucleArc++)
-	std::cout<<"Valeur P ["<<uiBoucleArc<<"] "<< P[uiBoucleArc]<<std::endl;*/
+	for (uiBoucleSommet=0 ; uiBoucleSommet < uiNbSommet; uiBoucleSommet++){
+		for (uiBoucleArc=0; uiBoucleArc < TabSommet[uiBoucleSommet]->SOMLireNbArcSortant() ; uiBoucleArc++){
+		
+			longueur = TabSommet[uiBoucleSommet]->SOMLireArcSortant()[uiBoucleArc]->ARCLirePoids();
+			iDestination = TabSommet[uiBoucleSommet]->SOMLireArcSortant()[uiBoucleArc]->ARCLireDestination();
+			iIndiceDestination = GRAParam.GRATrouverIndiceSommet(iDestination);
 
+			if (piDistance[uiBoucleSommet] + longueur < piDistance[iIndiceDestination] ){
+				throw CException(CYCLE_ABSORBANT);
+			}
+		}
+	}
 
 	return piDistance;
 }

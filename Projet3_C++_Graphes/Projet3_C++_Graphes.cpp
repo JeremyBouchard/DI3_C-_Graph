@@ -7,25 +7,23 @@
 int main(int argc, char * argv[])
 {
 	std::cout <<"----------Debut execution---------\n" << std::endl;
-	if (argc > 1){
+	if (argc > 2){
 
 		CChargeurGraphe chargeur;
 		try{
 
 			CGraphe* GRASaisie = new CGraphe(*chargeur.CGRLireFichier(argv[1]));
+			unsigned int uiBoucle;
+			CTraitementGraphe TGRTraitement;
+			CSommet ** ppSOMEntrée = GRASaisie->GRALireTabSommet();
 
-			std::cout << "Graphe 1:" << std::endl;
+			std::cout << "Graphe en entree :" << std::endl;
 			GRASaisie->GRAAfficher();
 
-			CTraitementGraphe TGRTraitement;
-			/*CGraphe pGRAGrapheInv(TGRTraitement.TGRInversionGraphe(*GRASaisie));
-			std::cout << "Graphe 1 inverse: \n" << std::endl;
-			pGRAGrapheInv.GRAAfficher();*/
-
-			unsigned int uiBoucle;
-			std::cout<<"Tableau de distance : "<<*TGRTraitement.TGRBellmanFord(*GRASaisie, 1)<<std::endl;
+			float * pfBellmanResult = TGRTraitement.TGRBellmanFord(*GRASaisie, std::atoi(argv[2]));
+			std::cout<<"Bellman-Ford avec le sommet source numero "<<argv[2]<<" :"<<std::endl;
 			for (uiBoucle=0 ; uiBoucle < GRASaisie->GRALireNbSommet() ; uiBoucle++){
-				std::cout<<"Distance sommet "<<GRASaisie->GRALireTabSommet()[uiBoucle]->SOMLireNumero() << " -> " <<TGRTraitement.TGRBellmanFord(*GRASaisie, 1)[uiBoucle]<<std::endl;
+				std::cout<<"Disatnce jusqu'au sommet "<<ppSOMEntrée[uiBoucle]->SOMLireNumero() << " vaut " << pfBellmanResult[uiBoucle]<<std::endl;
 
 			}
 
@@ -64,6 +62,10 @@ int main(int argc, char * argv[])
 				std::cerr << "Impossible de trouver l'arc" << std::endl;
 				break;
 
+			case CYCLE_ABSORBANT:
+				std::cerr << "Bellman-Ford : Cycle Absorbant -> Pas de solution" << std::endl;
+				break;
+
 			default:
 				std::cerr << "Erreur inconnue" <<  std::endl;
 				break;
@@ -71,10 +73,10 @@ int main(int argc, char * argv[])
 		}
 
 	}else{
-		std::cerr<< "\n Veuillez fournir au moins 1 fichier en parametre \n" << std::endl ;
+		std::cerr<< "\n Veuillez fournir un fichier en parametre puis un numero de sommet source\n" << std::endl ;
 	}
 
-	std::cout <<"----------Fin execution---------\n\n" << std::endl;
+	std::cout <<std::endl<<"----------Fin execution---------\n\n" << std::endl;
 
 
 	return 0;

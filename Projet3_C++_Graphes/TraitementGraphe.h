@@ -6,6 +6,7 @@
 #include "Arc.h"
 #include "Exception.h"
 
+#define CYCLE_ABSORBANT 9
 
 class CTraitementGraphe
 {
