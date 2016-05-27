@@ -2,7 +2,7 @@ NbSommet=8
 nbarc=11
 sommet=[
 numero=1
-numero=2
+numero=-2
 numero=3
 numero=4
 numero=5
@@ -11,10 +11,11 @@ numero=7
 numero=8
 ]
 Arcs=[
-Debut=1,Fin=2, poids=2
+Debut=1,Fin=1, poids=2.5
+Debut=1,Fin=-2, poids=-2.5
 Debut=1,Fin=3, poids=2
 Debut=1,Fin=4, poids=3
-Début=2,Fin=5, Poids=4
+Début=-2,Fin=5, Poids=4
 Debut=3,Fin=6, poids=2
 Debut=3,Fin=7, poids=1
 Debut=4,Fin=7, poids=1

@@ -9,7 +9,7 @@ CGraphe * CChargeurGraphe::CGRLireFichier(char * pcChemin){
 	CParseur PARParseur(pcChemin);
 	CGraphe * GRAResultat = new CGraphe();
 	unsigned int NbSommet, NbArc, uiBoucle, NumeroTmp1, NumeroTmp2;
-	int iPoids;
+	float iPoids;
 	
 	PARParseur.PARLireLigne();
 	NbSommet=std::atoi(PARParseur.PARLireValeur());
@@ -34,7 +34,7 @@ CGraphe * CChargeurGraphe::CGRLireFichier(char * pcChemin){
 		PARParseur.PARLireLigne();
 		NumeroTmp2=std::atoi(PARParseur.PARLireValeur());
 		PARParseur.PARLireLigne();
-		iPoids=std::atoi(PARParseur.PARLireValeur());
+		iPoids=(float)std::atof(PARParseur.PARLireValeur());
 		GRAResultat->GRAAjouterArc(NumeroTmp1,NumeroTmp2,iPoids);
 	}
 

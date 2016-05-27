@@ -137,7 +137,6 @@ void CSommet::SOMAjouterArcSortant(CArc & ARCParam){
 
 void CSommet::SOMSupprimerArcEntrant(int uiDestination){
 
-	CArc * pARCASupprimer = SOMTrouverArcEntrant(uiDestination);
 	SOMSupprimerArcEntrant(*SOMTrouverArcEntrant(uiDestination));
 }
 
@@ -220,7 +219,7 @@ CArc * CSommet::SOMTrouverArcEntrant(int uiDestination){
 }
 
 int CSommet::SOMTrouverIndiceArcEntrant(int uiDestination){
-	int uiBoucle;
+	unsigned int uiBoucle;
 
 	for (uiBoucle=0;uiBoucle<uiSOMNbArcEntrant;uiBoucle++){ 
 		
@@ -246,7 +245,7 @@ CArc * CSommet::SOMTrouverArcSortant(int uiDestination){
 }
 
 int CSommet::SOMTrouverIndiceArcSortant(int uiDestination){
-	int uiBoucle;
+	unsigned int uiBoucle;
 
 	for (uiBoucle=0;uiBoucle<uiSOMNbArcEntrant;uiBoucle++){ 
 		

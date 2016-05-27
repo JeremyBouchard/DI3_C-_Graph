@@ -50,7 +50,6 @@ void CGraphe::GRAModifierTabSommet(CSommet ** ppSOMParam, unsigned int uiNbSomme
 void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, float fPoids)
 {
 	CSommet * ppSommet1, * ppSommet2;
-	unsigned int uiBoucle=0;
 
 	ppSommet1=GRATrouverSommet(uiOrigine);
 	ppSommet2=GRATrouverSommet(uiDestination);
@@ -68,7 +67,6 @@ void CGraphe::GRAAjouterArc(int uiOrigine,int uiDestination, float fPoids)
 void CGraphe::GRAASupprimerArc(int uiOrigine,int uiDestination)
 {
 	CSommet * ppSommet1, * ppSommet2;
-	unsigned int uiBoucle=0;
 
 	ppSommet1=GRATrouverSommet(uiOrigine);
 	ppSommet2=GRATrouverSommet(uiDestination);
